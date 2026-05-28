@@ -86,26 +86,39 @@ function Header() {
 /* ---------- HERO ---------- */
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
-      <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-primary/25 blur-3xl animate-[drift_14s_ease-in-out_infinite]" />
-      <div className="pointer-events-none absolute -right-32 top-40 h-96 w-96 rounded-full bg-[color:var(--gold)]/30 blur-3xl animate-[drift_18s_ease-in-out_infinite_reverse]" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl animate-[breathe_8s_ease-in-out_infinite]" />
+    <section id="top" className="relative overflow-hidden pt-32 pb-28 sm:pt-44 sm:pb-36">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(circle_at_center,black,transparent_68%)] animate-[pan_26s_ease-in-out_infinite]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 18% 22%, color-mix(in oklab, var(--gold) 40%, transparent), transparent 48%), radial-gradient(circle at 78% 18%, color-mix(in oklab, var(--primary) 45%, transparent), transparent 50%), radial-gradient(circle at 70% 70%, color-mix(in oklab, var(--gold) 30%, transparent), transparent 55%)",
+          backgroundSize: "180% 180%",
+        }}
+      />
+      <div className="pointer-events-none absolute -left-32 top-16 h-96 w-96 rounded-full bg-primary/25 blur-3xl animate-[drift_16s_ease-in-out_infinite]" />
+      <div className="pointer-events-none absolute -right-36 top-44 h-96 w-96 rounded-full bg-[color:var(--gold)]/30 blur-3xl animate-[drift_20s_ease-in-out_infinite_reverse]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl animate-[breathe_9s_ease-in-out_infinite]" />
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-        <div>
+        <div className="relative">
+          <div className="pointer-events-none absolute -left-10 -top-10 h-44 w-44 rounded-full bg-[color:var(--gold)]/15 blur-3xl animate-[breathe_11s_ease-in-out_infinite]" />
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur" style={{ animation: "var(--animate-fade-in)" }}>
             <VenusBloom className="h-3.5 w-3.5 text-[color:var(--gold)]" />
             A nonprofit nurturing women in tech
           </div>
           <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl" style={{ animation: "var(--animate-fade-up)" }}>
-            Empowering the <span className="text-gradient">Leaders of Tomorrow</span>
+            Empowering the{" "}
+            <span className="relative inline-block text-gradient">
+              Leaders of Tomorrow
+              <span className="pointer-events-none absolute inset-x-0 -bottom-2 h-2 rounded-full bg-[image:var(--gradient-gold)] opacity-50 blur-sm" />
+            </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground" style={{ animation: "var(--animate-fade-up)", animationDelay: "0.15s" }}>
             We build safe, joyful spaces where young women discover their voice in
             technology — learning, coding, and growing together at their own pace.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4" style={{ animation: "var(--animate-fade-up)", animationDelay: "0.3s" }}>
-            <a href="#about" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[image:var(--gradient-hero)] px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition-all hover:scale-105 hover:shadow-[var(--shadow-glow)]">
+            <a href="#about" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[image:var(--gradient-hero)] px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]">
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               Join Our Mission
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -115,13 +128,13 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-12 flex items-center gap-8" style={{ animation: "var(--animate-fade-up)", animationDelay: "0.45s" }}>
+          <div className="mt-12 flex flex-wrap items-center gap-8" style={{ animation: "var(--animate-fade-up)", animationDelay: "0.45s" }}>
             {[
               { n: "2.5k+", l: "Students" },
               { n: "120+", l: "Mentors" },
               { n: "40", l: "Cities" },
             ].map((s) => (
-              <div key={s.l}>
+              <div key={s.l} className="min-w-[92px]">
                 <div className="font-display text-3xl font-semibold text-gradient">{s.n}</div>
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">{s.l}</div>
               </div>
@@ -131,9 +144,12 @@ function Hero() {
 
         {/* Hero image */}
         <div className="relative" style={{ animation: "var(--animate-fade-in)", animationDelay: "0.4s" }}>
-          <div className="absolute -inset-6 rounded-[2.2rem] bg-[image:var(--gradient-hero)] opacity-30 blur-3xl animate-[breathe_7s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute -inset-6 rounded-[2.2rem] bg-[image:var(--gradient-hero)] opacity-30 blur-3xl animate-[breathe_8s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute -inset-10 animate-[orbit_20s_linear_infinite]">
+            <div className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-[color:var(--gold)] shadow-[0_0_18px_rgba(232,184,74,0.6)]" />
+          </div>
           {/* floating accent chip */}
-          <div className="absolute -top-6 -left-6 z-10 flex items-center gap-2 rounded-2xl glass border border-border/60 px-4 py-2.5 shadow-[var(--shadow-elegant)] animate-[float_5s_ease-in-out_infinite]">
+          <div className="absolute -top-6 -left-6 z-10 flex items-center gap-2 rounded-2xl glass border border-border/60 px-4 py-2.5 shadow-[var(--shadow-elegant)] animate-[float_6s_ease-in-out_infinite]">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[image:var(--gradient-gold)]">
               <Code2 className="h-4 w-4 text-primary-foreground" />
             </div>
@@ -142,7 +158,7 @@ function Hero() {
               <div className="text-muted-foreground">Spring 2026</div>
             </div>
           </div>
-          <div className="absolute -bottom-6 -right-4 z-10 flex items-center gap-2 rounded-2xl glass border border-border/60 px-4 py-2.5 shadow-[var(--shadow-elegant)] animate-[float_7s_ease-in-out_infinite] [animation-delay:1s]">
+          <div className="absolute -bottom-6 -right-4 z-10 flex items-center gap-2 rounded-2xl glass border border-border/60 px-4 py-2.5 shadow-[var(--shadow-elegant)] animate-[float_8s_ease-in-out_infinite] [animation-delay:1s]">
             <div className="flex -space-x-2">
               {["#c4a484", "#9b6dc4", "#e8b84a"].map((c, i) => (
                 <span key={i} className="h-6 w-6 rounded-full border-2 border-card" style={{ background: c }} />
@@ -151,12 +167,13 @@ function Hero() {
             <span className="text-xs font-medium">+842 joined this month</span>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/40 p-2 backdrop-blur-xl shadow-[var(--shadow-elegant)] animate-[float_9s_ease-in-out_infinite]">
+          <div className="group relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/40 p-2 backdrop-blur-xl shadow-[var(--shadow-elegant)] animate-[float_10s_ease-in-out_infinite]">
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
               alt="Diverse group of young women learning together"
-              className="h-full w-full rounded-[1.6rem] object-cover aspect-[4/5] transition-transform duration-[3s] hover:scale-105"
+              className="h-full w-full rounded-[1.6rem] object-cover aspect-[4/5] transition-transform duration-[4s] group-hover:scale-105"
             />
+            <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent)] opacity-0 mix-blend-screen animate-[shine_7s_ease-in-out_infinite] group-hover:opacity-70" />
             <div className="absolute bottom-6 left-6 right-6 rounded-2xl glass border border-border/60 p-4">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--gold)]/20 animate-[pulse-glow_4s_ease-in-out_infinite]">
